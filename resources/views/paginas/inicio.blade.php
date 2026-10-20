@@ -6,7 +6,7 @@
 <div class="vintage-box text-center">
     <h2 class="section-title">Bienvenidos a Nuestra Historia</h2>
     <p class="lead-text">
-        Fundado en el corazón del antiguo mercado en 1924, <strong>Abasto Restaurante</strong> conserva intacta la mística de los bodegones clásicos de principios del siglo XX. Maderas nobles, luces cálidas y recetas que pasaron de generación en generación.
+        En el centro de San Martin de los Andes a metros de la Plaza Sarmiento, se encuentra un destacado restaurante con esencia argentina llamado “El Abasto”. 
     </p>
     <p class="muted-paragraph">
         Cada plato cuenta un capítulo de nuestra tradición gastronómica, maridado con una selección única para quienes buscan una velada inolvidable.

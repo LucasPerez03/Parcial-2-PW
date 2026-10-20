@@ -7,18 +7,19 @@
     
     <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 </head>
 <body>
 
     <header>
         <h1>Abasto Restaurante</h1>
-        <p class="subtitulo">Tradición, historia y sabores de antaño desde 1924</p>
+        <p class="subtitulo">Desde el 2021 brindamos un servicio de calidad con platos absolutamente caseros.</p>
         <nav>
             <a href="{{ route('paginas.inicio') }}">Inicio</a>
             <a href="{{ route('paginas.menu') }}">Menú Histórico</a>
+            <a href="{{ route('reservas.index') }}">Listado de Reservas</a>
+            <a href="{{ route('reservas.create') }}">Reservar Mesa</a>
             <a href="{{ route('paginas.contacto') }}">Contacto y Ubicación</a>
         </nav>
     </header>
