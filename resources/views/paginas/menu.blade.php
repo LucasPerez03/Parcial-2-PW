@@ -5,7 +5,7 @@
 @section('contenido')
 <div class="vintage-box">
     <h2 class="section-title">Carta de Especialidades</h2>
-    <p class="muted-paragraph text-center">
+    <p class="text-main text-center">
         Platos elaborados con recetas tradicionales de nuestra cocina histórica.
     </p>
 

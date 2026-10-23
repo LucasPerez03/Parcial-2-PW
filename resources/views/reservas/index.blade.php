@@ -4,7 +4,7 @@
 
 @section('contenido')
 <div class="vintage-box">
-    <h2 class="section-title">Registro de Reservas</h2>
+    <h2 class="section-title">Lista de Reservas</h2>
 
     {{-- Mensaje Flash de Confirmación --}}
     @if(session('exito'))
@@ -13,52 +13,61 @@
         </div>
     @endif
 
-    <div class="btn-group" style="margin-bottom: 2rem;">
-        <a href="{{ route('reservas.create') }}" class="btn-vintage">+ Nueva Reserva</a>
+    <div class="btn-group reservas-header-actions">
+        <a href="{{ route('reservas.create') }}" class="btn-vintage">Hacer Reserva</a>
     </div>
 
     @forelse($reservas as $reserva)
         <div class="reserva-card">
             <div class="reserva-info">
-                <h3>
-                    📅 {{ $reserva->fecha->format('d/m/Y') }} — 🕒 {{ \Carbon\Carbon::parse($reserva->hora)->format('H:i') }} hs
-                </h3>
-                <p class="reserva-meta">
-                    <strong>Cliente:</strong> {{ $reserva->nombre_cliente }} | 
-                    <strong>Comensales:</strong> {{ $reserva->cantidad_personas }} personas | 
-                    <strong>Tel:</strong> {{ $reserva->telefono }} | 
-                    <strong>Email:</strong> {{ $reserva->email }}
-                </p>
+                <div class="reserva-header">
+                    <h3>
+                        {{ $reserva->fecha->format('d/m/Y') }} — {{ \Carbon\Carbon::parse($reserva->hora)->format('H:i') }} hs
+                    </h3>
+                    <span class="badge-comensales">
+                        {{ $reserva->cantidad_personas }} {{ $reserva->cantidad_personas == 1 ? 'comensal' : 'comensales' }}
+                    </span>
+                </div>
+
+                <div class="reserva-meta-grid">
+                    <div><strong>Cliente:</strong> {{ $reserva->nombre_cliente }}</div>
+                    <div><strong>Teléfono:</strong> {{ $reserva->telefono }}</div>
+                    <div><strong>Email:</strong> {{ $reserva->email }}</div>
+                </div>
 
                 @if($reserva->observaciones)
-                    <p style="font-style: italic; font-size: 0.9rem; margin-bottom: 0.6rem;">
+                    <p class="reserva-observaciones">
                         "{{ $reserva->observaciones }}"
                     </p>
                 @endif
 
-                <div>
-                    <strong style="color: var(--gold-accent); font-size: 0.9rem;">Platos pre-encargados:</strong>
+                <div class="reserva-productos-box">
+                    <span class="reserva-productos-title">Platos pre-encargados:</span>
                     @if($reserva->productos->isEmpty())
-                        <span style="color: var(--muted-text); font-size: 0.9rem;">Sin productos encargados por adelantado.</span>
+                        <span class="sin-productos">Sin productos encargados por adelantado.</span>
                     @else
-                        <ul class="productos-list">
+                        <div class="productos-tags">
                             @foreach($reserva->productos as $producto)
-                                <li>{{ $producto->nombre }} ({{ $producto->categoria }}) — ${{ number_format($producto->precio, 2, ',', '.') }}</li>
+                                <span class="producto-tag">
+                                    {{ $producto->nombre }} 
+                                    <small>(${{ number_format($producto->precio, 0, ',', '.') }})</small>
+                                </span>
                             @endforeach
-                        </ul>
+                        </div>
                     @endif
                 </div>
             </div>
 
-            {{-- Formulario para Cancelar Reserva usando DELETE --}}
-            <form action="{{ route('reservas.destroy', $reserva) }}" method="POST" onsubmit="return confirm('¿Está seguro de que desea cancelar esta reserva?');">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn-danger">Cancelar Reserva</button>
-            </form>
+            <div class="reserva-actions">
+                <form action="{{ route('reservas.destroy', $reserva) }}" method="POST" onsubmit="return confirm('¿Está seguro de que desea cancelar esta reserva?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-danger">Cancelar</button>
+                </form>
+            </div>
         </div>
     @empty
-        <p class="text-center muted-paragraph">No hay reservas registradas en este momento.</p>
+        <p class="text-center texto-main-2">No hay reservas registradas en este momento.</p>
     @endforelse
 </div>
 @endsection

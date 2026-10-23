@@ -5,7 +5,7 @@
 @section('contenido')
 <div class="vintage-box">
     <h2 class="section-title">Reservar una Mesa</h2>
-    <p class="muted-paragraph text-center">
+    <p class="text-main text-center">
         Complete los datos de su velada y, si lo desea, seleccione los platos que desea encargar por adelantado.
     </p>
 
@@ -93,7 +93,7 @@
 
         <div class="btn-group" style="margin-top: 1.5rem;">
             <button type="submit" class="btn-vintage">Confirmar Reserva</button>
-            <a href="{{ route('reservas.index') }}" class="btn-vintage btn-outline">Ver Listado de Reservas</a>
+            <a href="{{ route('reservas.index') }}" class="btn-vintage btn-outline">Ver Lista de Reservas</a>
         </div>
     </form>
 </div>
