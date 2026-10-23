@@ -73,7 +73,7 @@
                             {{ is_array(old('productos')) && in_array($producto->id, old('productos')) ? 'checked' : '' }}>
                         <span>
                             <strong>{{ $producto->nombre }}</strong> 
-                            <small style="color: var(--gold-accent);">(${{ number_format($producto->precio, 0, ',', '.') }})</small>
+                            <small>(${{ number_format($producto->precio, 0, ',', '.') }})</small>
                         </span>
                     </label>
                 @endforeach
@@ -91,9 +91,9 @@
             @enderror
         </div>
 
-        <div class="btn-group" style="margin-top: 1.5rem;">
+        <div class="btn-group">
             <button type="submit" class="btn-vintage">Confirmar Reserva</button>
-            <a href="{{ route('reservas.index') }}" class="btn-vintage btn-outline">Ver Lista de Reservas</a>
+            <a href="{{ route('reservas.index') }}" class="btn-vintage">Ver Lista de Reservas</a>
         </div>
     </form>
 </div>

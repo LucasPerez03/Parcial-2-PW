@@ -33,23 +33,17 @@ header {
     background-image: 
         url("../images/esquina-izquierda.png"), 
         url("../images/esquina-derecha.png");
-    background-repeat: 
-        no-repeat, 
-        no-repeat;
-    background-position: 
-        top left, 
-        top right;
-    background-size: 
-        auto 80%, 
-        auto 80%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, top right;
+    background-size: auto 80%, auto 80%;
 }
-
 
 header h1 {
     font-family: 'Fleur De Leah', serif;
     color: var(--gold-accent);
     font-size: 3.5rem;
     letter-spacing: 2px;
+    font-weight: normal;
 }
 
 nav {
@@ -66,7 +60,7 @@ nav a {
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 1px;
-    padding: 0.4rem 0.4rem;
+    padding: 0.4rem;
     border-bottom: 1px solid transparent;
     transition: 0.3s;
 }
@@ -103,6 +97,7 @@ main {
     font-family: 'Fleur De Leah', serif;
     color: var(--gold-accent);
     font-size: 2.7rem;
+    font-weight: normal;
     text-align: center;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--border-vintage);
@@ -112,12 +107,7 @@ main {
 .text-main {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
-    color: #c8b598;
-}
-
-.texto-main-2 {
-    color: #c8b598;
-    margin-bottom: 2rem;
+    color: var(--muted-text);
 }
 
 /* Botones */
@@ -126,6 +116,10 @@ main {
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
 }
 
 .btn-vintage {
@@ -140,6 +134,7 @@ main {
     border: 1px solid var(--gold-accent);
     cursor: pointer;
     transition: 0.3s;
+    font-family: 'Lora', serif;
 }
 
 .btn-vintage:hover {
@@ -155,7 +150,7 @@ main {
 }
 
 .card-item {
-    background-color: var(--bg-dark-brown);
+    background-color: var(--bg-black);
     border: 1px solid var(--border-vintage);
     padding: 1.5rem;
     display: flex;
@@ -173,29 +168,29 @@ main {
 }
 
 .card-title {
-    font-family: 'Lora', serif;
     font-size: 1.3rem;
     margin: 0.6rem 0;
     color: var(--cream-text);
 }
 
 .card-title-gold {
-    font-family: 'Lora', serif;
     color: var(--gold-accent);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
     margin-bottom: 0.5rem;
 }
 
 .card-desc {
     font-size: 0.9rem;
     color: var(--muted-text);
-    margin-bottom: 1rem;
+    margin-top: 0.4rem;
 }
 
 .card-price-box {
     border-top: 1px dashed var(--border-vintage);
     padding-top: 0.6rem;
+    margin-top: 1rem;
     text-align: right;
 }
 
@@ -253,7 +248,7 @@ input[type="number"],
 textarea {
     width: 100%;
     padding: 0.7rem;
-    background-color:#230606 ;
+    background-color: var(--bg-black);
     border: 1px solid var(--border-vintage);
     color: var(--cream-text);
     font-family: 'Lora', serif;
@@ -277,7 +272,8 @@ input:focus, textarea:focus {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 0.8rem;
-    background-color: var(--bg-dark-brown);
+    background-color: var(--bg-black);
+    border: 1px solid var(--border-vintage);
     padding: 1.2rem;
     max-height: 300px;
     overflow-y: auto;
@@ -289,7 +285,7 @@ input:focus, textarea:focus {
     gap: 0.6rem;
     font-size: 0.9rem;
     cursor: pointer;
-    color: #c8b598;
+    color: var(--muted-text);
 }
 
 .checkbox-item input[type="checkbox"] {
@@ -297,13 +293,18 @@ input:focus, textarea:focus {
     accent-color: var(--gold-accent);
 }
 
-/* Listado de Reservas Mejorado */
+.precio-hint {
+    color: var(--gold-accent);
+}
+
+/* Listado de Reservas */
 .reservas-header-actions {
     margin-bottom: 2.2rem;
 }
 
 .reserva-card {
     background-color: var(--bg-black);  
+    border: 1px solid var(--border-vintage);
     padding: 1.5rem 1.8rem;
     margin-bottom: 1.5rem;
     display: flex;
@@ -311,7 +312,11 @@ input:focus, textarea:focus {
     align-items: flex-end;
     gap: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: border-color 0.2s ease;
+}
+
+.reserva-card:hover {
+    border-color: var(--gold-accent);
 }
 
 .reserva-info {
@@ -321,7 +326,6 @@ input:focus, textarea:focus {
 .reserva-header {
     display: flex;
     align-items: center;
-    font-family: 'Lora', serif;
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 0.8rem;
@@ -427,7 +431,6 @@ input:focus, textarea:focus {
     font-size: 0.78rem;
     letter-spacing: 1px;
     transition: 0.3s;
-    align-self: flex-end;
 }
 
 .btn-danger:hover {
